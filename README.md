@@ -1,4 +1,4 @@
-Smart Expense Manager
+*Smart Expense Manager
 
 A personal finance management system built using **C++17, Crow, and MySQL**, with a web-based interface for tracking income, expenses, budgets, savings goals, and financial insights.
 
