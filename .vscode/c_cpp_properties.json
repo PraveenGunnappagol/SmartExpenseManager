@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}/backend/include",
+                "C:/vcpkg/installed/x64-windows/include",
+                "C:/Libraries/mysql-connector-c++-26.7.0-winx64/include"
+            ],
+            "defines": [
+                "_WIN32_WINNT=0x0A00"
+            ],
+            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2026/BuildTools/VC/Tools/MSVC/19.51.36256/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

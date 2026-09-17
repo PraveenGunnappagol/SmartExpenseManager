@@ -1,0 +1,258 @@
+/* ==================== FORM PANEL ==================== */
+
+.expense-form-panel {
+    margin-bottom: 20px;
+}
+
+
+/* ==================== FORM GRID ==================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+
+/* ==================== FORM GROUP ==================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dbe7f3;
+}
+
+
+/* ==================== INPUTS ==================== */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 14px;
+
+    border: 1px solid #294057;
+    border-radius: 8px;
+
+    background: #0b1b2b;
+    color: #eaf2f8;
+
+    font-size: 14px;
+
+    outline: none;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #71859a;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #1f7cff;
+    box-shadow: 0 0 0 3px rgba(31, 124, 255, 0.12);
+}
+
+
+/* ==================== SELECT ==================== */
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #0b1b2b;
+    color: #eaf2f8;
+}
+
+
+/* ==================== FORM ACTIONS ==================== */
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 4px;
+}
+
+
+/* ==================== BUTTONS ==================== */
+
+.primary-btn,
+.secondary-btn {
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.1s ease;
+}
+
+.primary-btn {
+    border: 1px solid #1f7cff;
+    background: #1f7cff;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1769db;
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+    transform: translateY(1px);
+}
+
+.secondary-btn {
+    border: 1px solid #294057;
+    background: transparent;
+    color: #c7d5e3;
+}
+
+.secondary-btn:hover {
+    background: #13283c;
+    border-color: #3a526b;
+}
+
+
+/* ==================== PAGE HEADER BUTTON ==================== */
+
+.page-header .primary-btn {
+    align-self: center;
+    margin-top: 12px;
+}
+
+
+/* ==================== RESPONSIVE FORM ==================== */
+
+@media (max-width: 700px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+}
+/* ==================== FORM PANEL SPACING ==================== */
+
+.expense-form-panel .panel-header {
+    padding: 18px 21px;
+}
+
+.expense-form-panel .form-grid {
+    padding: 20px 21px;
+}
+
+.expense-form-panel .form-actions {
+    padding: 0 21px 20px;
+}
+/* ==================== AUTH PAGES ==================== */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+
+    background: #0f1f33;
+    border: 1px solid #1d3552;
+    border-radius: 16px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-logo {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #1f7cff;
+
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.auth-header h1 {
+    margin: 0 0 8px;
+
+    color: #f1f5f9;
+    font-size: 22px;
+}
+
+.auth-header p {
+    margin: 0;
+
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.auth-btn {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.auth-footer {
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.auth-footer p {
+    margin: 0;
+}
+
+.auth-footer a {
+    color: #4d9cff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}

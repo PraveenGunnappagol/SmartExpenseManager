@@ -1,0 +1,352 @@
+/* =========================================================
+   SMART EXPENSE MANAGER
+   Base Theme & Global Styles
+   ========================================================= */
+
+
+/* ==================== RESET ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #07111f;
+    color: #f1f5f9;
+    min-height: 100vh;
+}
+
+
+/* ==================== GENERAL ELEMENTS ==================== */
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==================== APP CONTAINER ==================== */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+/* ==================== SIDEBAR ==================== */
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #0a1d36 0%,
+        #0b203d 100%
+    );
+
+    border-right: 1px solid #1c3048;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 38px 18px 24px;
+}
+
+
+/* ==================== BRAND ==================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 8px 18px 38px;
+}
+
+.brand-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #1677e8,
+        #0754c7
+    );
+
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
+}
+
+.brand-text h2 {
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+
+/* ==================== NAVIGATION ==================== */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    min-height: 54px;
+
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    padding: 0 18px;
+
+    border-radius: 9px;
+
+    color: #e2e8f0;
+
+    font-size: 16px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-item.active {
+    background: linear-gradient(
+        90deg,
+        #1769d5,
+        #1264d2
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 102, 255, 0.18);
+}
+
+.nav-icon {
+    width: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+/* ==================== SIDEBAR BOTTOM ==================== */
+
+.sidebar-bottom {
+    margin-top: 20px;
+}
+
+.logout {
+    margin-bottom: 24px;
+}
+
+
+/* ==================== MONTH SUMMARY ==================== */
+
+.month-summary {
+    background: rgba(5, 20, 39, 0.7);
+
+    border: 1px solid #1b3655;
+
+    border-radius: 9px;
+
+    padding: 18px 16px;
+}
+
+.month-summary h3 {
+    margin-bottom: 20px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #f1f5f9;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 17px;
+
+    font-size: 14px;
+    color: #d7dee8;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+}
+
+.summary-row strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.income-text {
+    color: #00e676;
+}
+
+.expense-text {
+    color: #ff334f;
+}
+
+.balance-text {
+    color: #2196ff;
+}
+
+
+/* ==================== MAIN CONTENT ==================== */
+
+.main-content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 28px 28px 35px;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(22, 103, 202, 0.08),
+            transparent 30%
+        ),
+        #07111f;
+
+    overflow-x: hidden;
+}
+
+
+/* ==================== SCROLLBAR ==================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #081523;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #263b55;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #35516f;
+}
+/* ==================== TOAST NOTIFICATION ==================== */
+
+.toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+
+    min-width: 260px;
+    max-width: 360px;
+
+    padding: 14px 18px;
+
+    background: #10253b;
+    border: 1px solid #1f7cff;
+    border-radius: 10px;
+
+    color: #f1f5f9;
+    font-size: 14px;
+    font-weight: 500;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+/* Budget page logout button */
+.sidebar .logout {
+    width: 100%;
+    padding: 10px 14px;
+    margin-top: 12px;
+    border: 1px solid #294057;
+    border-radius: 8px;
+    background: transparent;
+    color: #eaf2f8;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sidebar .logout:hover {
+    background: #162b43;
+    border-color: #3b82f6;
+}
+/* Budget Status */
+
+.budget-status-safe {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.budget-status-close {
+    color: #facc15;
+    font-weight: 600;
+}
+
+.budget-status-over {
+    color: #ef4444;
+    font-weight: 600;
+}

@@ -1,0 +1,31 @@
+# Build folders
+build/
+build-release/
+
+# Visual Studio
+.vs/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Compiled files
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.o
+*.a
+
+# IDE
+.vscode/
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+*.env

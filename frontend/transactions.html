@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Transactions - Smart Expense Manager</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+       <aside class="sidebar">
+
+    <!-- Brand -->
+    <div class="brand">
+
+        <div class="brand-icon">
+            ₹
+        </div>
+
+        <div class="brand-text">
+
+            <strong>
+                Smart Expense
+            </strong>
+
+            <strong>
+                Manager
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+
+        <a
+            href="index.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Dashboard
+            </span>
+        </a>
+
+
+        <a
+            href="expenses.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ▣
+            </span>
+
+            <span>
+                Expenses
+            </span>
+        </a>
+
+
+        <a
+            href="income.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ↗
+            </span>
+
+            <span>
+                Income
+            </span>
+        </a>
+
+
+        <a
+            href="budget.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ◎
+            </span>
+
+            <span>
+                Budget
+            </span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ▥
+            </span>
+
+            <span>
+                Analytics
+            </span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ★
+            </span>
+
+            <span>
+                Goals
+            </span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ▤
+            </span>
+
+            <span>
+                Reports
+            </span>
+        </a>
+
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+            <span class="nav-icon">
+                ⚙
+            </span>
+
+            <span>
+                Settings
+            </span>
+        </a>
+
+    </nav>
+
+
+    <!-- Sidebar Bottom -->
+    <div class="sidebar-bottom">
+
+        <a
+            href="#"
+            class="nav-item logout"
+        >
+            <span class="nav-icon">
+                ↪
+            </span>
+
+            <span>
+                Logout
+            </span>
+        </a>
+
+
+        <!-- Dynamic Month Summary -->
+        <div class="month-summary">
+
+            <h3>
+                This Month Summary
+            </h3>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Income
+                </span>
+
+                <strong
+                    class="income-text"
+                    id="sidebar-income"
+                >
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Expenses
+                </span>
+
+                <strong
+                    class="expense-text"
+                    id="sidebar-expenses"
+                >
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Balance
+                </span>
+
+                <strong
+                    class="balance-text"
+                    id="sidebar-balance"
+                >
+                    ₹0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+
+        <main class="main-content">
+
+            <!-- ==================== HEADER ==================== -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <h1>
+                        All Transactions
+                    </h1>
+
+                    <p>
+                        Complete transaction history
+                    </p>
+
+                </div>
+
+                <div class="user-section">
+
+                    <div class="welcome-text">
+
+                        <span id="welcome-user">
+                            Welcome
+                        </span>
+
+                        <small>
+                            Transaction History
+                        </small>
+
+                    </div>
+
+                    <div class="user-avatar">
+                        👤
+                    </div>
+
+                    <span class="dropdown-arrow">
+                        ⌄
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- ==================== TRANSACTIONS ==================== -->
+
+            <section class="dashboard-panel transactions-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>
+                            All Transactions
+                        </h2>
+
+                    </div>
+
+                    <a
+                        href="index.html"
+                        class="view-all-btn"
+                    >
+                        Back to Dashboard
+                    </a>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="transactions-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Category
+                                </th>
+
+                                <th>
+                                    Description
+                                </th>
+
+                                <th>
+                                    Amount
+                                </th>
+
+                                <th>
+                                    Payment Method
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="transactions-body">
+
+                            <tr>
+
+                                <td colspan="6">
+                                    Loading transactions...
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/api.js"></script>
+
+    <script src="js/transactions.js"></script>
+
+</body>
+
+</html>

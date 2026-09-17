@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Expense Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+
+<body>
+
+<div class="app-container">
+
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- Brand -->
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ₹
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    Smart Expense
+                </strong>
+
+                <strong>
+                    Manager
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+
+            <a href="index.html"
+               class="nav-item active">
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="expenses.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                <span>
+                    Expenses
+                </span>
+
+            </a>
+
+
+            <a href="income.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ↗
+                </span>
+
+                <span>
+                    Income
+                </span>
+
+            </a>
+
+
+            <a href="budget.html" class="nav-item">
+                <span class="nav-icon">
+                    ◎
+                </span>
+
+                <span>
+                    Budget
+                </span>
+
+            </a>
+
+
+            <a href="analytics.html" class="nav-item">
+                <span class="nav-icon">
+                    ▥
+                </span>
+
+                <span>
+                    Analytics
+                </span>
+
+            </a>
+
+
+            
+
+
+            <a href="reports.html"
+               class="nav-item">
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+
+            
+
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="sidebar-bottom">
+
+
+            <a href="#"
+               class="nav-item logout">
+
+                <span class="nav-icon">
+                    ↪
+                </span>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+
+            <!-- Dynamic Month Summary -->
+
+            <div class="month-summary">
+
+                <h3>
+                    This Month Summary
+                </h3>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Income
+                    </span>
+
+                    <strong
+                        class="income-text"
+                        id="sidebar-income">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Expenses
+                    </span>
+
+                    <strong
+                        class="expense-text"
+                        id="sidebar-expenses">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Balance
+                    </span>
+
+                    <strong
+                        class="balance-text"
+                        id="sidebar-balance">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================== DASHBOARD HEADER ==================== -->
+
+        <header class="dashboard-header">
+
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Overview of your finances
+                </p>
+
+            </div>
+
+
+            <div class="user-section">
+
+                <div class="welcome-text">
+
+                    <span id="welcome-user">
+                        Welcome
+                    </span>
+
+                    <small id="current-date">
+                        —
+                    </small>
+
+                </div>
+
+
+                <div class="user-avatar">
+                    👤
+                </div>
+
+
+                <span class="dropdown-arrow">
+                    ⌄
+                </span>
+
+            </div>
+
+
+        </header>
+
+
+        <!-- ==================== SUMMARY CARDS ==================== -->
+
+<section class="summary-cards">
+
+    <!-- Total Income -->
+    <div class="summary-card income-card">
+
+        <div class="card-icon">
+            ₹
+        </div>
+
+        <div class="card-content">
+
+            <span class="card-label">
+                THIS TOTAL INCOME
+            </span>
+
+            <h2 id="total-income">
+                ₹0.00
+            </h2>
+
+            <p id="income-change">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Total Expenses -->
+    <div class="summary-card expense-card">
+
+        <div class="card-icon">
+            −
+        </div>
+
+        <div class="card-content">
+
+            <span class="card-label">
+               THIS MONTH EXPENSES
+            </span>
+
+            <h2 id="total-expenses">
+                ₹0.00
+            </h2>
+
+            <p id="expense-change">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Balance -->
+    <div class="summary-card balance-card">
+
+        <div class="card-icon">
+            ◔
+        </div>
+
+        <div class="card-content">
+
+            <span class="card-label">
+                THIS MONTH BALANCE
+            </span>
+
+            <h2 id="total-balance">
+                ₹0.00
+            </h2>
+
+            <p id="balance-change">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Savings Rate -->
+    <div class="summary-card savings-card">
+
+        <div class="card-icon">
+            %
+        </div>
+
+        <div class="card-content">
+
+            <span class="card-label">
+               THIS MONTH SAVINGS RATE
+            </span>
+
+            <h2 id="savings-rate">
+                0.00%
+            </h2>
+
+            <p id="savings-rate-change">
+                —
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ==================== CHART SECTION ==================== -->
+
+        <section class="charts-section">
+
+
+            <!-- ==================== EXPENSE DISTRIBUTION ==================== -->
+
+            <div class="dashboard-panel expense-distribution">
+
+
+                <div class="panel-header">
+
+                    <h2>
+                        Expense Distribution
+                    </h2>
+
+                </div>
+
+
+                <div class="pie-chart-area">
+
+
+                    <div
+                        class="pie-chart"
+                        id="expense-pie-chart">
+                    </div>
+
+
+                    <!-- JavaScript populates this -->
+
+                    <div
+                        class="chart-legend"
+                        id="expense-legend">
+                    </div>
+
+
+                </div>
+
+
+                <div class="chart-total">
+
+                    Total Expenses:
+
+                    <strong id="chart-total-expenses">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ==================== SPENDING TREND ==================== -->
+
+            <div class="dashboard-panel spending-trend">
+
+
+                <div class="panel-header">
+
+
+                    <h2>
+                        Spending Trend
+                    </h2>
+
+
+                    <div class="chart-toggle">
+
+                        <button
+                            class="toggle-btn active">
+                            Monthly
+                        </button>
+
+                        <button
+                            class="toggle-btn">
+                            Daily
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="line-chart-area">
+
+                    <canvas
+                        id="spending-trend-chart">
+                    </canvas>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ==================== RECENT TRANSACTIONS ==================== -->
+
+        <section class="dashboard-panel transactions-panel">
+
+
+            <div class="panel-header">
+
+
+                <div>
+
+                    <h2>
+                        Recent Transactions
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="transactions.html"
+                    class="view-all-btn">
+                    View All
+                </a>
+
+
+            </div>
+
+
+            <div class="table-container">
+
+
+                <table class="transactions-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Description
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Payment Method
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <!-- JavaScript populates this -->
+
+                    <tbody id="transactions-body">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Loading transactions...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script src="js/app.js"></script>
+
+<script src="js/api.js"></script>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Budget - Smart Expense Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+    .budget-form-panel .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* -----------------------------
+       Monthly Budget Overview
+    ----------------------------- */
+
+    .budget-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .budget-summary-card {
+        background: #111a2e;
+        border: 1px solid #24304a;
+        border-radius: 12px;
+        padding: 20px;
+        min-height: 105px;
+        box-sizing: border-box;
+    }
+
+    .budget-summary-card h3 {
+        margin: 0 0 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #8d99ae;
+    }
+
+    .budget-summary-value {
+        font-size: 23px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    /* -----------------------------
+       Status
+    ----------------------------- */
+
+    .budget-status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 2px;
+    }
+
+    .budget-status-safe {
+        color: #00d96b;
+        background: rgba(0, 217, 107, 0.10);
+    }
+
+    .budget-status-close {
+        color: #f5b942;
+        background: rgba(245, 185, 66, 0.10);
+    }
+
+    .budget-status-over {
+        color: #ff3150;
+        background: rgba(255, 49, 80, 0.10);
+    }
+
+    /* -----------------------------
+       Progress
+    ----------------------------- */
+
+    .budget-progress {
+        width: 100%;
+        height: 7px;
+        margin-top: 22px;
+        background: #202b42;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .budget-progress-bar {
+        height: 100%;
+        width: 0%;
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+
+    .budget-progress-safe {
+        background: #00d96b;
+    }
+
+    .budget-progress-close {
+        background: #f5b942;
+    }
+
+    .budget-progress-over {
+        background: #ff3150;
+    }
+
+    /* -----------------------------
+       Budget Details
+    ----------------------------- */
+
+    .budget-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid #24304a;
+    }
+
+    .budget-detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 18px;
+    }
+
+    .budget-detail-row:first-child {
+        border-right: 1px solid #24304a;
+    }
+
+    .budget-detail-label {
+        color: #8d99ae;
+        font-size: 13px;
+    }
+
+    .budget-detail-value {
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    /* -----------------------------
+       Empty State
+    ----------------------------- */
+
+    .budget-empty {
+        text-align: center;
+        padding: 30px 20px;
+        color: #8d99ae;
+    }
+    
+
+    /* -----------------------------
+       Responsive
+    ----------------------------- */
+
+    @media (max-width: 1100px) {
+        .budget-summary-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 700px) {
+
+        .budget-summary-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .budget-details {
+            grid-template-columns: 1fr;
+        }
+
+        .budget-detail-row {
+            padding: 10px 0;
+        }
+
+        .budget-detail-row:first-child {
+            border-right: none;
+            border-bottom: 1px solid #24304a;
+        }
+
+        .budget-form-panel .form-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* -----------------------------
+       Budget Page Layout Polish
+    ----------------------------- */
+
+    .main-content {
+        padding: 32px 28px 40px;
+        box-sizing: border-box;
+    }
+
+    .main-content > .page-header {
+        margin-bottom: 24px;
+    }
+
+    .main-content > .dashboard-panel {
+        margin-bottom: 24px;
+    }
+
+    .budget-form-panel {
+        padding: 26px 24px 24px;
+    }
+
+    .budget-form-panel .panel-header {
+        margin-bottom: 24px;
+    }
+
+    .budget-form-panel .form-grid {
+        gap: 20px;
+    }
+
+    .budget-form-panel .form-actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 12px;
+    }
+
+    .budget-form-panel .primary-btn,
+    .budget-form-panel .secondary-btn {
+        min-height: 44px;
+        padding: 10px 20px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(2) {
+        padding: 24px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(2) .panel-header {
+        margin-bottom: 18px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(2) .budget-progress {
+        margin-top: 22px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) {
+        padding: 24px;
+        margin-bottom: 0;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .panel-header {
+        margin-bottom: 18px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .table-container {
+        margin-top: 4px;
+        overflow-x: auto;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table {
+        width: 100%;
+        min-width: 760px;
+        border-collapse: collapse;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table th,
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table td {
+        padding: 14px 16px;
+        vertical-align: middle;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table th:first-child,
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table td:first-child {
+        padding-left: 18px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table th:last-child,
+    .main-content > .dashboard-panel:nth-of-type(3) .transactions-table td:last-child {
+        padding-right: 18px;
+        white-space: nowrap;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .secondary-btn {
+        margin-right: 8px;
+        min-height: 38px;
+        padding: 8px 16px;
+    }
+
+    .main-content > .dashboard-panel:nth-of-type(3) .secondary-btn:last-child {
+        margin-right: 0;
+    }
+
+    @media (max-width: 900px) {
+        .main-content {
+            padding: 24px 18px 32px;
+        }
+
+        .budget-form-panel,
+        .main-content > .dashboard-panel:nth-of-type(2),
+        .main-content > .dashboard-panel:nth-of-type(3) {
+            padding: 20px;
+        }
+    }
+
+</style>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">₹</div>
+
+                <div class="brand-text">
+                    <strong>Smart Expense</strong>
+                    <strong>Manager</strong>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="index.html" class="nav-item">
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="expenses.html" class="nav-item">
+                    <span class="nav-icon">▣</span>
+                    Expenses
+                </a>
+
+                <a href="income.html" class="nav-item">
+                    <span class="nav-icon">↗</span>
+                    Income
+                </a>
+
+                <a href="budget.html" class="nav-item active">
+                    <span class="nav-icon">◎</span>
+                    Budget
+                </a>
+
+                <a href="analytics.html" class="nav-item">
+                    <span class="nav-icon">▥</span>
+                    Analytics
+                </a>
+
+                
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    Reports
+                </a>
+
+                
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                
+
+               <button id="logout-btn" class="nav-item logout" type="button">
+    <span class="nav-icon">↪</span>
+    <span>Logout</span>
+</button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+
+
+            <div class="page-header">
+                <div>
+                    <h1>Budget</h1>
+                    <p>Manage your total monthly spending limit.</p>
+                </div>
+            </div>
+
+            <!-- Budget Form -->
+            <section class="dashboard-panel budget-form-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2 id="budget-form-title">
+                            Add Monthly Budget
+                        </h2>
+
+                        <p>
+                            Set one spending limit for all expenses in a month.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form id="budget-form">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="budget-amount">
+                                Total Monthly Budget
+                            </label>
+
+                            <input
+                                type="number"
+                                id="budget-amount"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="Enter monthly budget"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="budget-month">
+                                Month
+                            </label>
+
+                            <select id="budget-month" required>
+
+                                <option value="">
+                                    Select month
+                                </option>
+
+                                <option value="2026-01">
+                                    January 2026
+                                </option>
+
+                                <option value="2026-02">
+                                    February 2026
+                                </option>
+
+                                <option value="2026-03">
+                                    March 2026
+                                </option>
+
+                                <option value="2026-04">
+                                    April 2026
+                                </option>
+
+                                <option value="2026-05">
+                                    May 2026
+                                </option>
+
+                                <option value="2026-06">
+                                    June 2026
+                                </option>
+
+                                <option value="2026-07">
+                                    July 2026
+                                </option>
+
+                                <option value="2026-08">
+                                    August 2026
+                                </option>
+
+                                <option value="2026-09">
+                                    September 2026
+                                </option>
+
+                                <option value="2026-10">
+                                    October 2026
+                                </option>
+
+                                <option value="2026-11">
+                                    November 2026
+                                </option>
+
+                                <option value="2026-12">
+                                    December 2026
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                            id="budget-submit-btn">
+                            Save Budget
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                            id="budget-cancel-btn">
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            
+            <!-- All Monthly Budgets -->
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>All Monthly Budgets</h2>
+
+                        <p>
+                            View and manage all your monthly budgets.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table class="transactions-table">
+
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Budget</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="budget-list-body">
+
+                            <tr>
+                                <td
+                                    colspan="6"
+                                    class="empty-state">
+                                    No monthly budgets found.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+        
+
+    </div>
+
+
+    <div id="toast" class="toast"></div>
+
+
+    <script src="js/api.js"></script>
+    <script src="js/budget.js"></script>
+
+</body>
+
+</html>

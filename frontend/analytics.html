@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Analytics - Smart Expense Manager
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+     <link
+    rel="stylesheet"
+    href="css/analytics.css"
+>
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+   
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                ₹
+            </div>
+
+            <div class="brand-text">
+                <strong>Smart Expense</strong>
+                <strong>Manager</strong>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+    <a
+        href="index.html"
+        class="nav-item"
+    >
+        <span class="nav-icon">
+            ⌂
+        </span>
+
+        <span>
+            Dashboard
+        </span>
+    </a>
+
+
+    <a
+        href="expenses.html"
+        class="nav-item"
+    >
+        <span class="nav-icon">
+            ▣
+        </span>
+
+        <span>
+            Expenses
+        </span>
+    </a>
+
+
+    <a
+        href="income.html"
+        class="nav-item"
+    >
+        <span class="nav-icon">
+            ↗
+        </span>
+
+        <span>
+            Income
+        </span>
+    </a>
+
+
+    <a
+        href="budget.html"
+        class="nav-item"
+    >
+        <span class="nav-icon">
+            ◎
+        </span>
+
+        <span>
+            Budget
+        </span>
+    </a>
+
+
+    <a
+        href="analytics.html"
+        class="nav-item active"
+    >
+        <span class="nav-icon">
+            ▥
+        </span>
+
+        <span>
+            Analytics
+        </span>
+    </a>
+
+
+    
+
+
+    <a
+       href="reports.html"
+        class="nav-item"
+    >
+        <span class="nav-icon">
+            ▤
+        </span>
+
+        <span>
+            Reports
+        </span>
+    </a>
+
+
+    
+
+</nav>
+
+        <div class="sidebar-bottom">
+
+           <a
+    href="#"
+    class="nav-item logout"
+>
+    <span class="nav-icon">
+        ↪
+    </span>
+
+    <span>
+        Logout
+    </span>
+</a>
+
+            
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Page Header -->
+        <header class="page-header">
+
+            <div>
+                <h1>
+                    Analytics
+                </h1>
+
+                <p>
+                    Understand your financial habits
+                    and spending patterns
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- Financial Overview -->
+       <section class="dashboard-panel analytics-page-panel">
+
+            <div class="panel-header">
+                <h2>
+                    Financial Overview
+                </h2>
+            </div>
+
+            <div class="analytics-summary-grid">
+
+                <div class="analytics-summary-card">
+
+                    <h3>
+                        Total Income
+                    </h3>
+
+                    <div
+                        class="analytics-summary-value"
+                        id="analytics-total-income"
+                    >
+                        ₹0.00
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-summary-card">
+
+                    <h3>
+                        Total Expenses
+                    </h3>
+
+                    <div
+                        class="analytics-summary-value"
+                        id="analytics-total-expenses"
+                    >
+                        ₹0.00
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-summary-card">
+
+                    <h3>
+                        Balance
+                    </h3>
+
+                    <div
+                        class="analytics-summary-value"
+                        id="analytics-balance"
+                    >
+                        ₹0.00
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-summary-card">
+
+                    <h3>
+                        Savings Rate
+                    </h3>
+
+                    <div
+                        class="analytics-summary-value"
+                        id="analytics-savings-rate"
+                    >
+                        0%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- Unusual Spending Spike -->
+<section class="dashboard-panel">
+    <div class="panel-header">
+        <div>
+            <h2>Unusual Spending Spike</h2>
+            <p>Detect unusually high expenses compared with your normal spending.</p>
+        </div>
+    </div>
+
+    <div id="unusual-spending-content">
+        <div class="budget-details">
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Status
+                </span>
+
+                <span
+                    id="unusual-spending-status"
+                    class="budget-status">
+                    Checking...
+                </span>
+            </div>
+
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Category
+                </span>
+
+                <span
+                    id="unusual-spending-category"
+                    class="budget-detail-value">
+                    -
+                </span>
+            </div>
+
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Month
+                </span>
+
+                <span
+                    id="unusual-spending-month"
+                    class="budget-detail-value">
+                    -
+                </span>
+            </div>
+
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Highest Expense
+                </span>
+
+                <span
+                    id="unusual-spending-amount"
+                    class="budget-detail-value">
+                    ₹0.00
+                </span>
+            </div>
+
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Average Expense
+                </span>
+
+                <span
+                    id="unusual-spending-average"
+                    class="budget-detail-value">
+                    ₹0.00
+                </span>
+            </div>
+
+            <div class="budget-detail-row">
+                <span class="budget-detail-label">
+                    Compared With Average
+                </span>
+
+                <span
+                    id="unusual-spending-multiplier"
+                    class="budget-detail-value">
+                    0.00×
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Income vs Expense -->
+       <section class="dashboard-panel analytics-page-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Income vs Expense
+                    </h2>
+
+                    <p>
+                        Monthly income and expense comparison
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="analytics-chart-container">
+
+                <canvas
+                    id="income-expense-chart"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- Category-wise Spending -->
+        <section class="dashboard-panel analytics-page-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Category-wise Spending
+                    </h2>
+
+                    <p>
+                        See where your money is being spent
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table class="transactions-table">
+
+                    <thead>
+                        <tr>
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Amount Spent
+                            </th>
+
+                            <th>
+                                Percentage
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="category-spending-body">
+
+                        <tr>
+                            <td colspan="3">
+                                No spending data available.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Budget Status -->
+        <section class="dashboard-panel analytics-page-panel">
+
+            <div class="panel-header">
+
+                <div>
+                   <h2>Monthly Budget Review</h2>
+
+                    
+                </div>
+
+            </div>
+
+            <div
+                id="analytics-budget-status"
+                class="analytics-budget-list"
+            >
+
+                <div class="budget-empty">
+                    No budgets need attention.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Financial Insights -->
+        <section class="dashboard-panel analytics-page-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>
+                        Financial Insights
+                    </h2>
+
+                    <p>
+                        Your highest and lowest spending
+                        categories
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="insights-grid">
+
+                <!-- Top 3 Highest -->
+                <div class="insights-card">
+
+                    <h3>
+                        Top 3 Highest Spending
+                    </h3>
+
+                    <div
+                        id="highest-spending-list"
+                        class="insights-list"
+                    >
+
+                        <div class="budget-empty">
+                            No spending data available.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Top 3 Lowest -->
+                <div class="insights-card">
+
+                    <h3>
+                        Top 3 Lowest Spending
+                    </h3>
+
+                    <div
+                        id="lowest-spending-list"
+                        class="insights-list"
+                    >
+
+                        <div class="budget-empty">
+                            No spending data available.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="js/api.js"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+></script>
+
+<script src="js/analytics.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Income - Smart Expense Manager</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+<div id="toast" class="toast"></div>
+<div class="app-container">
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">₹</div>
+
+            <div class="brand-text">
+                <strong>Smart Expense</strong>
+                <strong>Manager</strong>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                Dashboard
+            </a>
+
+            <a href="expenses.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                Expenses
+            </a>
+
+            <a href="income.html" class="nav-item active">
+                <span class="nav-icon">↗</span>
+                Income
+            </a>
+
+            <a href="budget.html" class="nav-item">
+                <span class="nav-icon">◎</span>
+                Budget
+            </a>
+
+            <a href="analytics.html" class="nav-item">
+                <span class="nav-icon">▥</span>
+                Analytics
+            </a>
+
+          
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                Reports
+            </a>
+
+            
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item logout">
+    <span class="nav-icon">↪</span>
+    <span>Logout</span>
+</a>
+
+            
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main class="main-content">
+
+        <header class="page-header">
+
+            <div>
+                <h1>Income</h1>
+                <p>Manage and track your income</p>
+            </div>
+
+            
+
+        </header>
+
+
+        <!-- ==================== INCOME FORM ==================== -->
+
+<section class="dashboard-panel expense-form-panel">
+
+    <div class="panel-header">
+        <h2 id="income-form-title">
+            Add Income
+        </h2>
+    </div>
+
+    <form id="income-form">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label for="income-amount">
+                    Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="income-amount"
+                    name="amount"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Enter amount"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="income-category">
+                    Category
+                </label>
+
+                <select
+                    id="income-category"
+                    name="categoryId"
+                >
+                    <option value="">
+                        Select category
+                    </option>
+                </select>
+
+                <input
+                    type="text"
+                    id="new-income-category"
+                    placeholder="Or type a new category"
+                    maxlength="50"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="income-date">
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="income-date"
+                    name="transactionDate"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="income-description">
+                    Description
+                </label>
+
+                <input
+                    type="text"
+                    id="income-description"
+                    name="description"
+                    maxlength="255"
+                    placeholder="Where did this income come from?"
+                >
+            </div>
+
+        </div>
+        <div class="form-actions">
+
+    <button
+        type="submit"
+        class="primary-btn"
+        id="add-income-btn"
+    >
+        + Add Income
+    </button>
+
+    <button
+        type="reset"
+        class="secondary-btn"
+    >
+        Clear
+    </button>
+
+</div>
+
+    </form>
+
+</section>
+
+
+        <!-- ==================== INCOME HISTORY ==================== -->
+
+        <section class="dashboard-panel transactions-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Income History</h2>
+                    <p>Recent income from your account</p>
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="transactions-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="income-body">
+
+                        <tr>
+                            <td colspan="5">
+                                Loading income...
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/api.js"></script>
+<script src="js/income.js"></script>
+
+</body>
+</html>

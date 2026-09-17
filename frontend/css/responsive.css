@@ -1,0 +1,293 @@
+/* =========================================================
+   SMART EXPENSE MANAGER
+   Responsive Dashboard Styles
+   ========================================================= */
+
+
+/* ==================== LARGE TABLETS / SMALL LAPTOPS ==================== */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 225px;
+    }
+
+    .main-content {
+        padding: 24px 20px 30px;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-chart-area {
+        justify-content: center;
+    }
+
+}
+
+
+/* ==================== TABLETS ==================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 200px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .brand {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .brand-text h2 {
+        font-size: 15px;
+    }
+
+    .nav-item {
+        padding-left: 13px;
+        padding-right: 13px;
+        gap: 12px;
+    }
+
+    .main-content {
+        padding: 20px 16px 25px;
+    }
+
+    .dashboard-header {
+        align-items: center;
+    }
+
+    .welcome-text {
+        display: none;
+    }
+
+    .pie-chart-area {
+        gap: 20px;
+    }
+
+    .pie-chart {
+        width: 210px;
+        height: 210px;
+    }
+
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 700px) {
+
+    .app-container {
+        display: block;
+    }
+
+    /* Turn sidebar into a horizontal navigation area */
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+
+        padding: 14px;
+
+        border-right: none;
+        border-bottom: 1px solid #1c3048;
+    }
+
+    .brand {
+        padding: 5px 8px 15px;
+    }
+
+    .brand-icon {
+        width: 44px;
+        height: 44px;
+
+        font-size: 22px;
+    }
+
+    .brand-text h2 {
+        font-size: 15px;
+    }
+
+    .sidebar-nav {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+
+    .nav-item {
+        min-height: 45px;
+
+        justify-content: center;
+
+        padding: 5px;
+
+        font-size: 12px;
+    }
+
+    .nav-icon {
+        width: auto;
+        font-size: 18px;
+    }
+
+    .nav-item span:last-child {
+        display: none;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .main-content {
+        padding: 18px 12px 25px;
+    }
+
+    .dashboard-header {
+        margin-bottom: 18px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+
+    .dashboard-header p {
+        font-size: 13px;
+    }
+
+    .user-section {
+        gap: 7px;
+    }
+
+    .user-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dropdown-arrow {
+        display: none;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .summary-card {
+        min-height: 105px;
+        padding: 16px;
+    }
+
+    .card-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+
+    .card-content h2 {
+        font-size: 20px;
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-distribution,
+    .spending-trend {
+        min-height: auto;
+        padding: 17px;
+    }
+
+    .pie-chart-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pie-chart {
+        width: 210px;
+        height: 210px;
+    }
+
+    .chart-legend {
+        width: 100%;
+    }
+
+    .legend-item {
+        grid-template-columns:
+            12px
+            minmax(80px, 1fr)
+            auto
+            auto;
+    }
+
+    .panel-header h2 {
+        font-size: 17px;
+    }
+
+    .chart-toggle {
+        flex-shrink: 0;
+    }
+
+    .toggle-btn {
+        min-width: 70px;
+    }
+
+    .line-chart-area {
+        height: 230px;
+    }
+
+    .transactions-table {
+        min-width: 750px;
+    }
+
+}
+
+
+/* ==================== VERY SMALL PHONES ==================== */
+
+@media (max-width: 430px) {
+
+    .sidebar-nav {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .nav-item {
+        min-height: 40px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    .summary-card {
+        gap: 12px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .card-content h2 {
+        font-size: 18px;
+    }
+
+    .card-label {
+        font-size: 11px;
+    }
+
+    .pie-chart {
+        width: 180px;
+        height: 180px;
+    }
+
+    .legend-item {
+        font-size: 13px;
+    }
+
+}
