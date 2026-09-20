@@ -273,7 +273,7 @@ Finora was developed to demonstrate practical implementation of:
 
 ## Author
 
-**Praveen G**
+**Praveen Gunnappagol**
 
 GitHub:
 https://github.com/gunnappagolpraveen-sys
