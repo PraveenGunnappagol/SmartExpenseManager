@@ -15,6 +15,6 @@ start "" /min /b py -m http.server 5500 --directory "%~dp0frontend"
 
 timeout /t 2 /nobreak >nul
 
-start "" "http://127.0.0.1:5500/frontend/login.html"
+start "" "http://127.0.0.1:5500/login.html"
 
 exit
